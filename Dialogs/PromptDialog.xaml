@@ -1,0 +1,52 @@
+﻿<local:Dialog x:Class="Com.Josh2112.MdixControls.Dialogs.PromptDialog"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:Com.Josh2112.MdixControls.Dialogs"
+              xmlns:converters="clr-namespace:Com.Josh2112.MdixControls.Converters"
+              mc:Ignorable="d">
+
+    <local:Dialog.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MdixControls;component/Themes/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <converters:VisibilityConverter VisibleIf="IsNonNull" x:Key="NonNullToVisibilityConverter"/>
+            <converters:VisibilityConverter VisibleIf="StringIsNullOrWhitespace" x:Key="StringNullOrWhitespaceToVisibilityConverter"/>
+        </ResourceDictionary>
+    </local:Dialog.Resources>
+
+    <StackPanel MaxWidth="1280" DataContext="{Binding RelativeSource={RelativeSource AncestorType=local:Dialog}}">
+        <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" TextWrapping="Wrap" Text="{Binding Title}" Margin="0,0,0,20"
+                   Visibility="{Binding Title, Converter={StaticResource StringNullOrWhitespaceToVisibilityConverter}}"/>
+        <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}" TextWrapping="Wrap" Text="{Binding Message}"/>
+
+        <ItemsControl x:Name="buttonContainer" ItemsSource="{Binding Buttons}" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button x:Name="innerButton" Click="Button_Click" Content="{Binding Text}"/>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Connotation}" Value="Positive">
+                            <Setter TargetName="innerButton" Property="Style" Value="{StaticResource PositiveButtonStyle}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Connotation}" Value="Negative">
+                            <Setter TargetName="innerButton" Property="Style" Value="{StaticResource NegativeButtonStyle}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Connotation}" Value="Neutral">
+                            <Setter TargetName="innerButton" Property="Style" Value="{StaticResource DialogButtonStyle}"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+
+</local:Dialog>

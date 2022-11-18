@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "wNYO1dzjMijYvLUrxgxMoDQ3sKfgt9V4D173gCndzFQMTa81hxfEqIU9xHdzmmJrMe0XE3mbGZZg8Xd2mQ2eGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\josh2\\source\\repos\\josh2112\\MdixControls\\MdixControls.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\josh2\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\nito.asyncex.tasks\\5.1.2\\nito.asyncex.tasks.5.1.2.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\nito.disposables\\2.2.1\\nito.disposables.2.2.1.nupkg.sha512",
+    "C:\\Users\\josh2\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
